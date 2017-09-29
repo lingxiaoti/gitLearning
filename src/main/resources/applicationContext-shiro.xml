@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!--修改spring中的jdk动态代理,作用是判断controller上的方法是否有权限-->
+	<aop:config proxy-target-class="true"/>
+	<!--开启权限注解扫描-->
+	<bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+		<property name="securityManager" ref="securityManager"/>
+	</bean>
+
+	<!--自定义Realm-->
+	<bean id="userRealm" class="com._520it.crm.realm.UserRealm">
+		<property name="employeeService" ref="employeeServiceImpl"/>
+		<property name="roleService" ref="roleServiceImpl"/>
+		<property name="permissionService" ref="permissionServiceImpl"/>
+	</bean>
+
+	<!--安全管理器ecurityManager-->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="userRealm"/>
+	</bean>
+
+	<!--将自定的filter过滤器配置到配置文件中-->
+	<bean id="extendFormAuthenticationFilter" class="com._520it.crm.filter.ExtendFormAuthenticationFilter">
+		<property name="systemMenuService" ref="systemMenuServiceImpl"/>
+	</bean>
+	<!--shiroFilter-->
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager"/>
+		<property name="loginUrl" value="/login"/>
+		<property name="successUrl" value="/main"/>
+		<property name="filters">
+			<map>
+				<entry key="authc" value-ref="extendFormAuthenticationFilter"/>
+			</map>
+		</property>
+		<property name="filterChainDefinitions">
+			<value>
+				/static/**=anon
+				/logout=logout
+				/**=authc
+			</value>
+		</property>
+	</bean>
+
+	<!--配置AOP系统日志-->
+	<!--what-->
+	<bean id="logAspert" class="com._520it.crm.util.LogAspert">
+		<property name="systemLogService" ref="systemLogServiceImpl"/>
+	</bean>
+
+	<aop:config>
+		<!--where-->
+		<aop:pointcut id="logPointcut" expression="execution(* com._520it.crm.service.impl.EmployeeServiceImpl.queryPage(..))"/>
+		<!--when-->
+		<aop:aspect ref="logAspert">
+			<aop:after method="write" pointcut-ref="logPointcut"/>
+		</aop:aspect>
+	</aop:config>
+</beans>
