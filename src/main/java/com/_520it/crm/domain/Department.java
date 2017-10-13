@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Setter@Getter
 public class Department {
-    private Long id;
+    private Long  id;
     private String name;
     private boolean state;
 }
