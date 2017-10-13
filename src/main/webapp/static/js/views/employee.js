@@ -98,7 +98,7 @@ $(function(){
 					//[1,3]----->List<Long>
 					$.post("/role/queryRoleIdListForEmployeeForm?employeeId="+rowData.id,function(data){
 						$("#roleId").combobox("setValues",data);
-					}),"json";
+					},"json");
 					
 				}else{
 					$.messager.alert("温馨提示","请选择一条需要修改的数据.","warning");
