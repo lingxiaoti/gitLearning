@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com._520it.crm.mapper.SupplierMapper" >
+  <resultMap id="BaseResultMap" type="com._520it.crm.domain.Supplier" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="sn" property="sn" jdbcType="VARCHAR" />
+    <result column="debt" property="debt" jdbcType="DECIMAL" />
+    <result column="refund" property="refund" jdbcType="DECIMAL" />
+    <result column="linkman" property="linkman" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="inputtime" property="inputTime" jdbcType="TIMESTAMP" />
+    <association property="operator"  columnPrefix="emp_" javaType="com._520it.crm.domain.Employee">
+      <id property="id" column="id"/>
+      <result property="username" column="username"/>
+    </association>
+  </resultMap>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from supplier
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+
+  <insert id="insert" parameterType="com._520it.crm.domain.Supplier" useGeneratedKeys="true" keyProperty="id" >
+    insert into supplier (name, sn, debt, 
+      refund, linkman, phone, 
+      inputtime, operator_id)
+    values (#{name,jdbcType=VARCHAR}, #{sn,jdbcType=VARCHAR}, #{debt,jdbcType=DECIMAL},
+      #{refund,jdbcType=DECIMAL}, #{linkman,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=TIMESTAMP}, #{operator.id,jdbcType=VARCHAR})
+  </insert>
+
+  <update id="updateByPrimaryKey" parameterType="com._520it.crm.domain.Supplier" >
+    update supplier
+    set name = #{name,jdbcType=VARCHAR},
+      sn = #{sn,jdbcType=VARCHAR},
+      debt = #{debt,jdbcType=DECIMAL},
+      refund = #{refund,jdbcType=DECIMAL},
+      linkman = #{linkman,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      inputtime = #{inputTime,jdbcType=TIMESTAMP},
+      operator_id = #{operator.id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select id, name, sn, debt, refund, linkman, phone, inputtime, operator_id
+    from supplier
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, name, sn, debt, refund, linkman, phone, inputtime, operator_id
+    from supplier
+  </select>
+
+  <sql id="base_where">
+    <where>
+
+    </where>
+  </sql>
+
+  <select id="queryPageCount" resultType="java.lang.Long">
+    select count(s.id) from supplier s
+    <include refid="base_where"/>
+  </select>
+
+  <select id="queryPageData" resultMap="BaseResultMap">
+    select s.id, s.name, s.sn, s.debt, s.refund, s.linkman, s.phone, s.inputtime,
+    emp.id emp_id,emp.username emp_username
+    from supplier s join employee emp on s.operator_id = emp.id
+    <include refid="base_where"/>
+    limit #{start},#{rows}
+  </select>
+</mapper>

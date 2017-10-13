@@ -265,7 +265,7 @@
 				<version>2.2</version>
 				<configuration>
 					<!-- tomcat启动的端口 -->
-					<port>80</port>
+					<port>8080</port>
 					<!-- 应用的上下文路径 -->
 					<path>/</path>
 				</configuration>
