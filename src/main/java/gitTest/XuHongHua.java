@@ -17,6 +17,7 @@ public class XuHongHua {
         System.out.println("23456");
 
         System.out.println("123456");
+        System.out.println("123456");
     }
 
 
