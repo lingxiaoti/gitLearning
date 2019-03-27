@@ -8,6 +8,7 @@ public class Guo {
     private String test;
     private String yang;
     private Integer id;
+    private Integer CCC;
 
     private String email;
 
