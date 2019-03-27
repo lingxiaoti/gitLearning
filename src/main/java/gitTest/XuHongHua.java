@@ -29,7 +29,7 @@ public class XuHongHua {
     }
 
     public void test01() {
-        System.out.println("123465");
+        System.out.println("asdfghjl");
     }
 
     public void test02() {
