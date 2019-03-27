@@ -7,6 +7,7 @@ public class Guo {
     private String password;
     private String yang;
     private Integer id;
+    private Integer AAA;
 
     private String email;
     public String getUsername() {
