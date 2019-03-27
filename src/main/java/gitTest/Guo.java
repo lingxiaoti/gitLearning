@@ -6,6 +6,7 @@ public class Guo {
     private Long number;
     private String password;
     private String test;
+    private String yang;
     private Integer id;
 
     private String email;
