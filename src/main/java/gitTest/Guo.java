@@ -5,11 +5,13 @@ public class Guo {
     private String username;
     private Long number;
     private String password;
+    private String test;
     private String yang;
     private Integer id;
     private Integer AAA;
 
     private String email;
+
     public String getUsername() {
         return username;
     }
