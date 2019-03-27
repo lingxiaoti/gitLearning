@@ -9,4 +9,5 @@ public class XuHongHua {
     private String qwe;
     private String zxc;
     private String lkj;
+    private String cvbn;
 }
