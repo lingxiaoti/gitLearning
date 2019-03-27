@@ -1,4 +1,6 @@
 package gitTest;
 
 public class Guo {
+
+    private String username;
 }
