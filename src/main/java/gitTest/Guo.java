@@ -13,6 +13,7 @@ public class Guo {
     private Integer CCC;
     private Integer FFF;
     private Integer DDD;
+    private Integer QQQQQQ;
 
     private String email;
 
