@@ -9,6 +9,7 @@ public class Guo {
     private String yang;
     private Integer id;
     private Integer AAA;
+    private Integer BBB;
 
     private String email;
 
