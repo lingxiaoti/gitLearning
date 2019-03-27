@@ -13,7 +13,7 @@ public class XuHongHua {
     private String cvbn;
     private String fghjl;
 
-    public void test(){
+    public void test() {
         System.out.println("zxcvbnm,");
         System.out.println("87654");
         System.out.println("87654");
@@ -28,7 +28,11 @@ public class XuHongHua {
         System.out.println("zxcvbnm,.asdfghjkl");
     }
 
-    public void test01(){
+    public void test01() {
+        System.out.println("123465");
+    }
+
+    public void test02() {
 
     }
 }
