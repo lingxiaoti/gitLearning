@@ -14,7 +14,7 @@ public class XuHongHua {
     private String fghjl;
 
     public void test(){
-        System.out.println("23456");
+        System.out.println("asdwr23vabrf");
 
         System.out.println("123456");
     }
