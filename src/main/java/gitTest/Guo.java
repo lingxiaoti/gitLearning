@@ -10,6 +10,7 @@ public class Guo {
     private Integer id;
     private Integer AAA;
     private Integer BBB;
+    private Integer CCC;
 
     private String email;
 
