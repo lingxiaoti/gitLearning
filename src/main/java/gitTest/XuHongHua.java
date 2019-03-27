@@ -12,4 +12,8 @@ public class XuHongHua {
     private String mnbv;
     private String cvbn;
     private String fghjl;
+
+    public void test(){
+        System.out.println("123456");
+    }
 }
