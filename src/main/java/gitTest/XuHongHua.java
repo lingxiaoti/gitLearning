@@ -8,4 +8,5 @@ public class XuHongHua {
     private String asdfg;
     private String qwe;
     private String zxc;
+    private String lkj;
 }
