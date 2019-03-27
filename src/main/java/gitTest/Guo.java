@@ -8,6 +8,7 @@ public class Guo {
 
     private Integer id;
 
+    private String email;
     public String getUsername() {
         return username;
     }
