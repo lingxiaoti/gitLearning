@@ -29,7 +29,7 @@ public class XuHongHua {
     }
 
     public void test01() {
-        System.out.println("zxcvbnm");
+        System.out.println("qwertyuio");
     }
 
     public void test02() {
