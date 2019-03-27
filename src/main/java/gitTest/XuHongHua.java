@@ -15,6 +15,8 @@ public class XuHongHua {
 
     public void test(){
         System.out.println("23456");
+        System.out.println("23456");
+        System.out.println("23456");
 
         System.out.println("123456");
         System.out.println("123456");
