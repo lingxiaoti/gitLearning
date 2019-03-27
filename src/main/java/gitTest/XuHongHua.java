@@ -30,4 +30,7 @@ public class XuHongHua {
     public void test02() {
 
     }
+    public void test03() {
+        System.out.println("xhh");
+    }
 }
