@@ -6,4 +6,6 @@ public class XuHongHua {
     private String email;
     private String username;
     private String asdfg;
+    private String qwe;
+    private String zxc;
 }
