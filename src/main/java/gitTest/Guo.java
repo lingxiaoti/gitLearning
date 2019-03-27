@@ -15,6 +15,7 @@ public class Guo {
     private Integer DDD;
     private Integer GGG;
     private Integer QQQQQQ;
+    private Integer ZZZZZ;
 
     private String email;
 
