@@ -13,9 +13,29 @@ public class XuHongHua {
     private String cvbn;
     private String fghjl;
 
-    public void test(){
+    public void test() {
+
         System.out.println("asdwr23vabrf");
 
+        System.out.println("qwertyuiop[");
         System.out.println("123456");
+        System.out.println("12342424137gydfbathehqeehh");
+        System.out.println("zxcvbnmasdfghjkqwertyuio");
+        System.out.println("45g5aa5");
+        System.out.println("zxcvbnm,.asdfghjkl");
     }
+
+    public void test01() {
+        System.out.println("qwertyuio");
+    }
+
+    public void test02() {
+
+    }
+    public void test03() {
+        System.out.println("xhh");
+        System.out.println("gy");
+    }
+
+
 }
