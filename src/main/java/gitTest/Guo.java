@@ -4,4 +4,5 @@ public class Guo {
 
     private String username;
     private Long number;
+    private String password;
 }
