@@ -1,4 +1,4 @@
 package gitTest;
 
-public class test {
+public class Test {
 }
