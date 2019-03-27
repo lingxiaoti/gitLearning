@@ -11,4 +11,5 @@ public class XuHongHua {
     private String lkj;
     private String mnbv;
     private String cvbn;
+    private String fghjl;
 }
