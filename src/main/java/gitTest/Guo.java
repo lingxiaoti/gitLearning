@@ -5,7 +5,7 @@ public class Guo {
     private String username;
     private Long number;
     private String password;
-
+    private String email;
     public String getUsername() {
         return username;
     }
